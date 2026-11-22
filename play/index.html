@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Block Trio: Color Sort Puzzle</title>
+<meta name="description" content="Sort 3 blocks of the same color into one tray. Block Trio is free on the App Store for iPhone and iPad.">
+<meta name="theme-color" content="#1B1247">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../oyna/icon.webp">
+<link rel="preload" as="image" href="../oyna/icon.webp">
+<style>
+:root{--bg:#1B1247;--bg2:#2C1F78;--fg:#F6F3FF;--mist:#B9B0E8;--gold:#FFC83D;--gold-edge:#D99A00;--ink:#2A1A00;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100svh;background:radial-gradient(120% 70% at 50% 0%,var(--bg2) 0%,var(--bg) 62%) fixed,var(--bg);color:var(--fg);font-family:ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:1040px;margin:0 auto;padding:28px 16px 32px;display:grid;gap:28px;align-items:center}
+.intro{text-align:center;display:grid;justify-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:64px;height:64px;border-radius:15px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.brand span{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
+h1{margin:6px 0 0;font-size:clamp(2.1rem,9vw,3.6rem);line-height:1.04;font-weight:900;letter-spacing:-.025em;max-width:13ch;text-wrap:balance}
+.sub{margin:0;color:var(--mist);font-size:1.08rem;line-height:1.5;max-width:34ch}
+.cta{display:block;width:100%;max-width:380px;margin-top:6px;padding:18px 22px;border-radius:18px;background:var(--gold);color:var(--ink);font-size:1.22rem;font-weight:900;text-decoration:none;box-shadow:0 5px 0 var(--gold-edge),0 12px 26px rgba(0,0,0,.35);transition:transform .08s,box-shadow .08s}
+.cta:active{transform:translateY(4px);box-shadow:0 1px 0 var(--gold-edge),0 6px 14px rgba(0,0,0,.3)}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.fine{margin:4px 0 0;color:var(--mist);font-size:.9rem;line-height:1.5}
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 8px;scrollbar-width:none}
+.shots::-webkit-scrollbar{display:none}
+.shots img{flex:0 0 auto;width:min(58vw,230px);height:auto;aspect-ratio:420/913;border-radius:18px;scroll-snap-align:center;background:var(--bg2)}
+footer{text-align:center;padding:0 16px 28px;font-size:.85rem;color:var(--mist)}
+footer a{color:var(--mist)}
+@media (min-width:860px){
+ main{grid-template-columns:1fr 1.15fr;min-height:calc(100svh - 60px);padding-top:40px}
+ .intro{text-align:left;justify-items:start}
+ .shots{margin:0;padding:0;overflow:visible;justify-content:center}
+ .shots img{width:31%;max-width:200px}
+ .shots img:nth-child(2){transform:translateY(-22px)}
+}
+@media (prefers-reduced-motion:reduce){.cta{transition:none}}
+</style>
+</head>
+<body>
+<main>
+ <div class="intro">
+  <div class="brand"><img src="../oyna/icon.webp" width="64" height="64" alt=""><span>Block Trio</span></div>
+  <h1>Think you're smart enough? Try it.</h1>
+  <p class="sub">Sort 3 blocks of the same color into one tray. It starts easy. Not all of it stays easy.</p>
+  <a class="cta" href="https://apps.apple.com/app/block-trio-sort-puzzle/id6832089629?ct=meta-test1" rel="noopener">Download from the App Store</a>
+  <p class="fine">Free on iPhone and iPad. In-app purchases available.<br>Google Play: coming soon.</p>
+ </div>
+ <div class="shots" aria-label="Screenshots from the game">
+  <img src="s1.webp" width="420" height="913" alt="Block Trio level 75: colored blocks in trays" fetchpriority="high">
+  <img src="s2.webp" width="420" height="913" alt="Sorting 3 same-color blocks into a tray">
+  <img src="s4.webp" width="420" height="913" alt="Blocks with a fruit look" loading="lazy">
+ </div>
+</main>
+<footer><a href="../">Privacy policy</a></footer>
+</body>
+</html>
