@@ -21,6 +21,10 @@ main{max-width:1040px;margin:0 auto;padding:28px 16px 32px;display:grid;gap:28px
 .brand span{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
 h1{margin:6px 0 0;font-size:clamp(2.1rem,9vw,3.6rem);line-height:1.04;font-weight:900;letter-spacing:-.025em;max-width:13ch;text-wrap:balance}
 .sub{margin:0;color:var(--mist);font-size:1.08rem;line-height:1.5;max-width:34ch}
+.store-links{display:grid;gap:14px;width:100%;max-width:380px;margin-top:6px}
+.store-links .cta{max-width:none;margin-top:0;text-align:center}
+.store-links[data-platform="desktop"]{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
+.store-links[data-platform="mobile"] .cta:not(.primary){--gold:var(--bg2);--gold-edge:#140D36;--ink:var(--fg)}
 .cta{display:block;width:100%;max-width:380px;margin-top:6px;padding:18px 22px;border-radius:18px;background:var(--gold);color:var(--ink);font-size:1.22rem;font-weight:900;text-decoration:none;box-shadow:0 5px 0 var(--gold-edge),0 12px 26px rgba(0,0,0,.35);transition:transform .08s,box-shadow .08s}
 .cta:active{transform:translateY(4px);box-shadow:0 1px 0 var(--gold-edge),0 6px 14px rgba(0,0,0,.3)}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
@@ -33,6 +37,7 @@ footer a{color:var(--mist)}
 @media (min-width:860px){
  main{grid-template-columns:1fr 1.15fr;min-height:calc(100svh - 60px);padding-top:40px}
  .intro{text-align:left;justify-items:start}
+ .store-links:not([data-platform]){grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
  .shots{margin:0;padding:0;overflow:visible;justify-content:center}
  .shots img{width:31%;max-width:200px}
  .shots img:nth-child(2){transform:translateY(-22px)}
@@ -46,8 +51,11 @@ footer a{color:var(--mist)}
   <div class="brand"><img src="icon.webp" width="64" height="64" alt=""><span>Block Trio</span></div>
   <h1>Zekana güveniyorsan sen dene.</h1>
   <p class="sub">Aynı renkten 3 bloğu bir tepsiye topla. Kolay başlar, hepsi kolay değil.</p>
-  <a class="cta" href="https://apps.apple.com/app/block-trio-sort-puzzle/id6832089629?ct=meta-test1" rel="noopener">App Store'dan indir</a>
-  <p class="fine">iPhone ve iPad için ücretsiz. Uygulama içi satın alma var.<br>Google Play: yakında.</p>
+  <div class="store-links">
+  <a class="cta" id="app-store" href="https://apps.apple.com/app/block-trio-sort-puzzle/id6832089629?ct=meta-test1" rel="noopener">App Store'dan indir</a>
+  <a class="cta" id="google-play" href="https://play.google.com/store/apps/details?id=com.blocktrio.game&amp;referrer=utm_source%3Dmeta%26utm_campaign%3Dtest1" rel="noopener">Google Play'den indir</a>
+  </div>
+  <p class="fine">iPhone ve iPad için ücretsiz. Uygulama içi satın alma var.</p>
  </div>
  <div class="shots" aria-label="Oyundan ekran görüntüleri">
   <img src="s1.webp" width="420" height="913" alt="Block Trio seviye 75: renkli bloklar tepsilerde" fetchpriority="high">
@@ -56,5 +64,13 @@ footer a{color:var(--mist)}
  </div>
 </main>
 <footer><a href="../">Gizlilik politikası</a></footer>
+<script>
+(function(){
+ var links=document.querySelector('.store-links'),ua=navigator.userAgent;
+ var preferred=/Android/i.test(ua)?'google-play':/iPhone|iPad|iPod/i.test(ua)?'app-store':null;
+ links.dataset.platform=preferred?'mobile':'desktop';
+ if(preferred){var button=document.getElementById(preferred);button.classList.add('primary');links.prepend(button);}
+})();
+</script>
 </body>
 </html>
